@@ -9,7 +9,7 @@ The alternate version uses matplotlib instead of plotly to visualize health disp
 1. **Clone the repository**
    ```bash
    git clone https://github.com/MaheshR03/equihealth-alternate.git
-   cd equihealth
+   cd equihealth-alternate
    ```
 
 2. **Install dependencies**
