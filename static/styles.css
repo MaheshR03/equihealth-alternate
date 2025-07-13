@@ -1,0 +1,2110 @@
+/* CSS Reset and Base Styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Fix scrollbar overlap issue globally */
+html {
+    overflow-x: hidden !important;
+    height: 100% !important;
+    scroll-behavior: smooth !important;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    line-height: 1.6;
+    color: #ffffff;
+    overflow-x: hidden !important;
+    position: relative !important;
+}
+
+/* Final scrollbar and overflow fixes */
+html,
+body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+}
+
+/* Prevent any element from causing horizontal scroll */
+*,
+*::before,
+*::after {
+    max-width: 100% !important;
+}
+
+/* Ensure main content areas don't exceed viewport */
+.content,
+.about-content,
+.container,
+.upload-box,
+.hero {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Additional scrollbar fixes for all pages */
+.resource-page,
+.about-page,
+.frontpage,
+.upload-page,
+.report-page,
+.result-page {
+    overflow-x: hidden !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Specific navbar z-index hierarchy */
+nav,
+.frontpage-nav,
+.resource-nav,
+.about-nav,
+.map-nav,
+.upload-nav,
+.report-nav {
+    z-index: 9999 !important;
+    position: fixed !important;
+    width: 100% !important;
+    left: 0 !important;
+    top: 0 !important;
+}
+
+/* Ensure all scrollbars are behind navbars */
+body::-webkit-scrollbar {
+    z-index: -1000 !important;
+}
+
+html::-webkit-scrollbar {
+    z-index: -1000 !important;
+}
+
+/* Enhanced Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
+    margin-bottom: 0.5em;
+    font-weight: 600;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+    color: #ffffff;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #f8f9fa;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #f8f9fa;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2) !important;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+/* Force text visibility with higher specificity */
+body p, div p, section p, article p, main p {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.4) !important;
+    font-weight: 500 !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    padding: 8px 12px !important;
+    border-radius: 6px !important;
+    margin: 10px 0 !important;
+}
+
+/* Override for specific page containers to make text readable */
+.about-page .container p,
+.upload-page .upload-box p,
+.report-page .container p,
+.result-page .container p,
+.resource-page .content p {
+    color: #495057 !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 10px 0 !important;
+    font-weight: 400 !important;
+}
+
+/* Override for specific page headers inside containers */
+.about-page .container h1,
+.about-page .container h2,
+.about-page .container h3,
+.upload-page .upload-box h1,
+.upload-page .upload-box h2,
+.upload-page .upload-box h3,
+.report-page .container h1,
+.report-page .container h2,
+.report-page .container h3,
+.result-page .container h1,
+.result-page .container h2,
+.result-page .container h3,
+.resource-page .content h1,
+.resource-page .content h2,
+.resource-page .content h3 {
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+}
+
+/* Hero section text enhancement */
+.hero p, .hero h1, .hero h2 {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6) !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+}
+
+/* Content section enhancements */
+.content p, .about-content p, .main-content p {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5) !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    padding: 12px 16px !important;
+    border-radius: 8px !important;
+    border-left: 4px solid rgba(255, 255, 255, 0.3) !important;
+    margin: 15px 0 !important;
+    font-size: 1.1rem !important;
+    line-height: 1.8 !important;
+}
+
+/* Override for about page content inside containers */
+.about-page .container p,
+.about-page .container h1,
+.about-page .container h2,
+.about-page .container h3 {
+    color: #495057 !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    border-left: none !important;
+}
+
+/* Footer text */
+footer p {
+    color: #f8f9fa !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4) !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+    padding: 8px !important;
+    border-radius: 4px !important;
+    text-align: center !important;
+}
+
+/* Enhanced Links */
+a {
+    text-decoration: none;
+    color: #87ceeb;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* Container and Layout */
+.container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced Buttons */
+button, .btn, input[type="submit"] {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+button:hover, .btn:hover, input[type="submit"]:hover {
+    background: linear-gradient(135deg, #45a049, #4CAF50);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+button:active, .btn:active, input[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+}
+
+/* Enhanced Forms */
+input[type="text"], input[type="email"], input[type="password"], 
+input[type="file"], select, textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus,
+input[type="file"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+    background: white;
+}
+
+/* Enhanced Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px 12px;
+    text-align: left;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+th {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+}
+
+tr:hover {
+    background-color: rgba(52, 152, 219, 0.05);
+    transform: scale(1.01);
+    transition: all 0.2s ease;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* Navigation Enhancement */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0;
+}
+
+nav a {
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Cards and Content Blocks */
+.card, .info-section {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.card:hover, .info-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Alert and Message Styles */
+.alert {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-weight: 500;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+    color: #0c5460;
+    border-left: 4px solid #17a2b8;
+}
+
+.alert-warning {
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    color: #856404;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #d4edda, #c3e6cb);
+    color: #155724;
+    border-left: 4px solid #28a745;
+}
+
+/* Text Visibility Enhancements */
+.text-content, .main-content {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* List styling for better visibility */
+ul, ol {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+/* Strong and emphasis text */
+strong, b {
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    font-weight: 700;
+}
+
+em, i {
+    color: #f8f9fa;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* Ensure all text elements are visible */
+span, div, label {
+    color: inherit;
+}
+
+/* Special styling for main content areas */
+main, section, article {
+    color: #ffffff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    table {
+        font-size: 14px;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Loading and Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.p-20 {
+    padding: 20px;
+}
+
+/* Enhanced Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+/* Specific styles for Upload and Report pages */
+.upload-page {
+    /* Use the same gradient background as body */
+    margin: 0 !important;
+    padding-top: 80px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    padding: 80px 20px 20px 20px !important;
+}
+
+.report-page {
+    /* Use the same gradient background as body - no additional background needed */
+    margin: 0 !important;
+    padding-top: 80px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+.upload-page .upload-box {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    text-align: center !important;
+}
+
+.report-page .container {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    margin: 20px auto !important;
+    max-width: 1200px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Upload page specific styles */
+.upload-page h1, .upload-page h2, .upload-page h3 {
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    text-align: center !important;
+}
+
+.upload-page p {
+    color: #34495e !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 10px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+}
+
+.upload-page .info-section {
+    background: rgba(248, 249, 250, 0.9) !important;
+    border: 1px solid rgba(222, 226, 230, 0.8) !important;
+    color: #495057 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    margin: 20px 0 !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.upload-page .info-section h3 {
+    color: #343a40 !important;
+    margin-bottom: 15px !important;
+}
+
+.upload-page .info-section p {
+    color: #6c757d !important;
+    margin-bottom: 10px !important;
+}
+
+.upload-page .info-section ul {
+    color: #6c757d !important;
+    text-shadow: none !important;
+}
+
+.upload-page .info-section li {
+    color: #6c757d !important;
+    margin-bottom: 5px !important;
+}
+
+/* Report page specific styles */
+.report-page h1 {
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+.report-page p {
+    color: #34495e !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 10px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+}
+
+/* Table styles for report page */
+.report-page table {
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.report-page th {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+}
+
+.report-page td {
+    color: #495057 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+.report-page tr:hover td {
+    background-color: rgba(52, 152, 219, 0.15) !important;
+    color: #495057 !important;
+}
+
+/* Report page link styling */
+.report-page a {
+    color: #007bff !important;
+    text-decoration: underline !important;
+    text-shadow: none !important;
+}
+
+.report-page a:hover {
+    color: #0056b3 !important;
+    text-shadow: none !important;
+}
+
+/* Table wrapper for horizontal scrolling */
+.report-page .table-wrapper {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    margin: 20px 0 !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* Add a top scrollbar for better UX */
+.report-page .table-scroll-container {
+    position: relative !important;
+}
+
+.report-page .table-scroll-top {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border-radius: 10px 10px 0 0 !important;
+    background: rgba(248, 249, 250, 0.9) !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    height: 17px !important;
+    margin-bottom: 0 !important;
+}
+
+.report-page .table-scroll-top div {
+    height: 1px !important;
+    background: transparent !important;
+}
+
+/* Custom scrollbar for top scroller */
+.report-page .table-scroll-top::-webkit-scrollbar {
+    height: 8px !important;
+}
+
+.report-page .table-scroll-top::-webkit-scrollbar-track {
+    background: rgba(248, 249, 250, 0.8) !important;
+    border-radius: 4px !important;
+}
+
+.report-page .table-scroll-top::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    border-radius: 4px !important;
+}
+
+.report-page .table-scroll-top::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff) !important;
+}
+
+/* Sync scroll between top and bottom scrollbars */
+.report-page .table-wrapper {
+    border-radius: 0 0 10px 10px !important;
+}
+
+/* Custom scrollbar for table wrapper */
+.report-page .table-wrapper::-webkit-scrollbar {
+    height: 8px !important;
+}
+
+.report-page .table-wrapper::-webkit-scrollbar-track {
+    background: rgba(248, 249, 250, 0.8) !important;
+    border-radius: 4px !important;
+}
+
+.report-page .table-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    border-radius: 4px !important;
+}
+
+.report-page .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff) !important;
+}
+
+/* Table cell styling and column management */
+.report-page .table-wrapper th,
+.report-page .table-wrapper td {
+    min-width: 120px !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+/* Special handling for ID column (first column) */
+.report-page .table-wrapper th:first-child,
+.report-page .table-wrapper td:first-child {
+    min-width: 80px !important;
+    position: sticky !important;
+    left: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    z-index: 10 !important;
+}
+
+/* Sticky header styling for ID column */
+.report-page .table-wrapper th:first-child {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    z-index: 11 !important;
+}
+
+/* Special handling for State and District columns */
+.report-page .table-wrapper th:nth-child(2),
+.report-page .table-wrapper td:nth-child(2),
+.report-page .table-wrapper th:nth-child(3),
+.report-page .table-wrapper td:nth-child(3) {
+    min-width: 150px !important;
+}
+
+/* Button styles for upload and report pages */
+.upload-page button, .report-page button,
+.upload-page .btn, .report-page .btn,
+.upload-page input[type="submit"], .report-page input[type="submit"] {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3) !important;
+}
+
+.upload-page button:hover, .report-page button:hover,
+.upload-page .btn:hover, .report-page .btn:hover,
+.upload-page input[type="submit"]:hover, .report-page input[type="submit"]:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4) !important;
+}
+
+/* Form styles for upload page */
+.upload-page input[type="file"] {
+    background: rgba(255, 255, 255, 0.9) !important;
+    border: 2px dashed #007bff !important;
+    border-radius: 8px !important;
+    padding: 20px !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+    color: #495057 !important;
+    margin: 20px 0 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+/* Upload page layout and column styling */
+.upload-page .info-section ul {
+    columns: 2 !important;
+    column-gap: 20px !important;
+    margin: 10px 0 !important;
+    list-style-position: inside !important;
+    text-align: left !important;
+    font-size: 12px !important;
+}
+
+.upload-page .info-section li {
+    margin: 3px 0 !important;
+    break-inside: avoid !important;
+    color: #6c757d !important;
+    list-style-type: disc !important;
+}
+
+/* Upload page link styling */
+.upload-page a {
+    color: #007bff !important;
+    text-decoration: underline !important;
+    text-shadow: none !important;
+}
+
+.upload-page a:hover {
+    color: #0056b3 !important;
+    text-shadow: none !important;
+}
+
+.upload-page input[type="file"] {
+    margin: 20px 0 !important;
+    width: 100% !important;
+    max-width: 400px !important;
+}
+
+.upload-page form {
+    margin-top: 20px !important;
+}
+
+/* Alert styles for upload and report pages */
+.upload-page .alert, .report-page .alert {
+    background: rgba(209, 236, 241, 0.9) !important;
+    color: #0c5460 !important;
+    border: 1px solid rgba(190, 229, 235, 0.8) !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    margin: 15px 0 !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* No data message styling */
+.no-data-message {
+    text-align: center !important;
+    font-style: italic !important;
+    color: #6c757d !important;
+    background: rgba(248, 249, 250, 0.8) !important;
+    padding: 20px !important;
+}
+
+/* Result page specific styles (similar to report page) */
+.result-page {
+    /* Use the same gradient background as body */
+    padding: 20px;
+}
+
+.result-page .container {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    margin: 20px auto !important;
+    max-width: 1200px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Result page heading */
+.result-page h1 {
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    text-align: center !important;
+    margin-bottom: 30px !important;
+}
+
+/* Result page table wrapper for horizontal scrolling */
+.result-page .table-scroll-container {
+    position: relative !important;
+}
+
+.result-page .table-scroll-top {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    border-radius: 10px 10px 0 0 !important;
+    background: rgba(248, 249, 250, 0.9) !important;
+    border-bottom: 1px solid #dee2e6 !important;
+    height: 17px !important;
+    margin-bottom: 0 !important;
+}
+
+.result-page .table-scroll-top div {
+    height: 1px !important;
+    background: transparent !important;
+}
+
+.result-page .table-wrapper {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+    margin: 20px 0 !important;
+    border-radius: 0 0 10px 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+/* Result page table styling */
+.result-page .result-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.result-page .result-table th {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    padding: 15px 12px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    font-size: 0.9rem !important;
+    min-width: 120px !important;
+    white-space: nowrap !important;
+}
+
+.result-page .result-table td {
+    color: #495057 !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    padding: 15px 12px !important;
+    text-align: left !important;
+    border-bottom: 1px solid #e8e8e8 !important;
+    min-width: 120px !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+}
+
+.result-page .result-table tr:hover td {
+    background-color: rgba(52, 152, 219, 0.15) !important;
+    color: #495057 !important;
+}
+
+.result-page .result-table tr:last-child td {
+    border-bottom: none !important;
+}
+
+/* Result page first column sticky */
+.result-page .result-table th:first-child,
+.result-page .result-table td:first-child {
+    min-width: 80px !important;
+    position: sticky !important;
+    left: 0 !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    z-index: 10 !important;
+}
+
+.result-page .result-table th:first-child {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+    z-index: 11 !important;
+}
+
+/* Result page button styling */
+.result-page .btn-container {
+    text-align: center !important;
+    margin-top: 30px !important;
+}
+
+.result-page .download-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3) !important;
+    display: inline-block !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.result-page .download-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4) !important;
+    color: white !important;
+    text-shadow: none !important;
+}
+
+/* Custom scrollbars for result page */
+.result-page .table-scroll-top::-webkit-scrollbar,
+.result-page .table-wrapper::-webkit-scrollbar {
+    height: 8px !important;
+}
+
+.result-page .table-scroll-top::-webkit-scrollbar-track,
+.result-page .table-wrapper::-webkit-scrollbar-track {
+    background: rgba(248, 249, 250, 0.8) !important;
+    border-radius: 4px !important;
+}
+
+.result-page .table-scroll-top::-webkit-scrollbar-thumb,
+.result-page .table-wrapper::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    border-radius: 4px !important;
+}
+
+.result-page .table-scroll-top::-webkit-scrollbar-thumb:hover,
+.result-page .table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff) !important;
+}
+
+/* Frontpage specific styles */
+.frontpage {
+    /* Use the same gradient background */
+    margin: 0 !important;
+    padding-top: 80px !important;
+}
+
+.frontpage-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 15px 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.frontpage-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.frontpage-nav li {
+    margin: 0 !important;
+}
+
+.frontpage-nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.frontpage-nav a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Hero section styling */
+.frontpage .hero {
+    text-align: center !important;
+    margin-top: 100px !important;
+    padding: 50px 20px !important;
+}
+
+.frontpage .hero h1 {
+    font-size: 3.5rem !important;
+    color: #ffffff !important;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4) !important;
+    margin-bottom: 30px !important;
+    font-weight: 700 !important;
+}
+
+.frontpage .hero p {
+    font-size: 1.4rem !important;
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6) !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 20px 30px !important;
+    border-radius: 15px !important;
+    font-weight: 500 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+    line-height: 1.6 !important;
+}
+
+/* Frontpage User Welcome */
+.user-welcome {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Responsive adjustments for frontpage */
+@media (max-width: 768px) {
+    .frontpage-nav ul {
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+    
+    .frontpage-nav a {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+    
+    .frontpage .hero h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .frontpage .hero p {
+        font-size: 1.2rem !important;
+        padding: 15px 20px !important;
+    }
+}
+
+/* Resource page specific styles */
+.resource-page {
+    /* Use the same gradient background */
+    margin: 0 !important;
+    padding-top: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+}
+
+.resource-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 15px 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.resource-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.resource-nav li {
+    margin: 0 !important;
+}
+
+.resource-nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.resource-nav a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Resource page content styling */
+.resource-page .content {
+    flex: 1 !important;
+    max-width: 1000px !important;
+    margin: 50px auto !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 40px !important;
+    border-radius: 15px !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    width: calc(100% - 40px) !important;
+}
+
+.resource-page h1 {
+    text-align: center !important;
+    color: #2c3e50 !important;
+    margin-bottom: 30px !important;
+    text-shadow: none !important;
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+}
+
+.resource-page .resource-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.resource-page .resource-list li {
+    margin-bottom: 25px !important;
+    background: rgba(248, 249, 250, 0.9) !important;
+    padding: 20px !important;
+    border-left: 5px solid #007bff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+    transition: all 0.3s ease !important;
+    backdrop-filter: blur(5px) !important;
+}
+
+.resource-page .resource-list li:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    border-left-color: #0056b3 !important;
+}
+
+.resource-page .resource-list a {
+    color: #007bff !important;
+    text-decoration: none !important;
+    font-weight: 700 !important;
+    font-size: 1.2rem !important;
+    text-shadow: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.resource-page .resource-list a:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+    text-shadow: none !important;
+}
+
+.resource-page .resource-description {
+    color: #6c757d !important;
+    font-size: 1rem !important;
+    margin-top: 10px !important;
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+/* Responsive adjustments for resource page */
+@media (max-width: 768px) {
+    .resource-nav ul {
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+    
+    .resource-nav a {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+    
+    .resource-page .content {
+        margin: 30px 20px !important;
+        padding: 25px !important;
+    }
+    
+    .resource-page h1 {
+        font-size: 2rem !important;
+    }
+    
+    .resource-page .resource-list a {
+        font-size: 1.1rem !important;
+    }
+}
+
+/* Resource page footer styling */
+.resource-page footer {
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    margin-top: auto !important;
+    padding: 30px 0 !important;
+    text-align: center !important;
+}
+
+.resource-page footer .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.resource-page footer p {
+    color: #f8f9fa !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 5px 0 !important;
+    border-radius: 0 !important;
+    margin: 5px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+}
+
+.resource-page footer .container p {
+    color: #f8f9fa !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 5px 0 !important;
+    border-radius: 0 !important;
+    margin: 5px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+}
+
+.resource-page footer a {
+    color: #87ceeb !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+.resource-page footer a:hover {
+    color: #add8e6 !important;
+    text-shadow: 0 0 5px rgba(173, 216, 230, 0.5) !important;
+    text-decoration: underline !important;
+}
+
+/* About page specific styles */
+.about-page {
+    margin: 0 !important;
+    padding-top: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    align-items: center !important;
+}
+
+.about-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 15px 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.about-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.about-nav li {
+    margin: 0 !important;
+}
+
+.about-nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+.about-nav a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+.about-page .about-content {
+    flex: 1 !important;
+    max-width: 900px !important;
+    width: 100% !important;
+    margin: 40px 20px !important;
+    text-align: center !important;
+}
+
+.about-page .container {
+    padding: 40px !important;
+    margin-bottom: 30px !important;
+}
+
+.about-page h1 {
+    font-size: 3rem !important;
+    margin-bottom: 30px !important;
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    text-align: center !important;
+}
+
+.about-page h2 {
+    font-size: 2.2rem !important;
+    margin: 30px 0 20px 0 !important;
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    text-align: center !important;
+}
+
+.about-page p {
+    color: #495057 !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 0 !important;
+    border-radius: 0 !important;
+    margin: 15px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+    font-size: 1.1rem !important;
+    line-height: 1.7 !important;
+}
+
+.about-page .team-section {
+    margin-top: 40px !important;
+    text-align: left !important;
+    background: rgba(248, 249, 250, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 15px !important;
+    padding: 30px !important;
+    border: 1px solid rgba(222, 226, 230, 0.8) !important;
+}
+
+.about-page .team-section h2 {
+    color: #343a40 !important;
+    text-shadow: none !important;
+    margin-bottom: 20px !important;
+}
+
+.about-page .team-section p {
+    color: #6c757d !important;
+}
+
+.about-page footer {
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    margin-top: auto !important;
+    padding: 30px 0 !important;
+    text-align: center !important;
+}
+
+.about-page footer .container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 0 20px !important;
+    background: none !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.about-page footer p {
+    color: #f8f9fa !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 5px 0 !important;
+    border-radius: 0 !important;
+    margin: 5px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+}
+
+.about-page footer .container p {
+    color: #f8f9fa !important;
+    background: none !important;
+    text-shadow: none !important;
+    padding: 5px 0 !important;
+    border-radius: 0 !important;
+    margin: 5px 0 !important;
+    font-weight: 400 !important;
+    border-left: none !important;
+}
+
+.about-page footer a {
+    color: #87ceeb !important;
+    font-weight: 600 !important;
+    text-shadow: none !important;
+}
+
+.about-page footer a:hover {
+    color: #add8e6 !important;
+    text-shadow: 0 0 5px rgba(173, 216, 230, 0.5) !important;
+    text-decoration: underline !important;
+}
+
+/* Mobile responsiveness for about page */
+@media (max-width: 768px) {
+    .about-page {
+        padding-top: 70px !important;
+    }
+    
+    .about-page .about-content {
+        margin: 20px 15px !important;
+    }
+    
+    .about-page .container {
+        padding: 25px !important;
+    }
+    
+    .about-page h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .about-page h2 {
+        font-size: 1.8rem !important;
+    }
+    
+    .about-nav a {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+}
+
+/* Hide any system scrollbars that might appear */
+::-webkit-scrollbar {
+    width: 8px !important;
+    z-index: -1 !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1) !important;
+    z-index: -1 !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+    border-radius: 4px !important;
+    z-index: -1 !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea) !important;
+}
+
+/* Map page specific styles */
+.map-page {
+    margin: 0 !important;
+    padding-top: 80px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    min-height: 100vh !important;
+    align-items: center !important;
+}
+
+.map-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 15px 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.map-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.map-nav li {
+    margin: 0 !important;
+}
+
+.map-nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+.map-nav a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+.map-page .map-content {
+    flex: 1 !important;
+    max-width: 1200px !important;
+    width: 100% !important;
+    margin: 40px 20px !important;
+    text-align: center !important;
+}
+
+.map-page .container {
+    padding: 40px !important;
+    margin-bottom: 30px !important;
+}
+
+.map-page h1 {
+    font-size: 3rem !important;
+    margin-bottom: 30px !important;
+    color: #2c3e50 !important;
+    text-shadow: none !important;
+    text-align: center !important;
+}
+
+.map-page .map-container {
+    margin: 30px 0 !important;
+    background: rgba(248, 249, 250, 0.9) !important;
+    border-radius: 15px !important;
+    padding: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+    border: 1px solid rgba(222, 226, 230, 0.8) !important;
+}
+
+.map-page .map-image {
+    max-width: 100% !important;
+    height: auto !important;
+    border-radius: 10px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s ease !important;
+}
+
+.map-page .map-image:hover {
+    transform: scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.map-page .map-actions {
+    margin-top: 30px !important;
+    text-align: center !important;
+}
+
+.map-page .back-btn {
+    background: linear-gradient(135deg, #007bff, #0056b3) !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 12px 24px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3) !important;
+    display: inline-block !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.map-page .back-btn:hover {
+    background: linear-gradient(135deg, #0056b3, #007bff) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4) !important;
+    color: white !important;
+    text-shadow: none !important;
+}
+
+/* Map Page No Data Styles */
+.no-data-container {
+  text-align: center;
+  padding: 60px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.no-data-message {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.upload-btn, .login-btn {
+  background: rgba(76, 175, 80, 0.8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.upload-btn:hover, .login-btn:hover {
+  background: rgba(76, 175, 80, 1);
+  transform: translateY(-2px);
+}
+
+/* Mobile responsiveness for map page */
+@media (max-width: 768px) {
+    .map-page {
+        padding-top: 70px !important;
+    }
+    
+    .map-page .map-content {
+        margin: 20px 15px !important;
+    }
+    
+    .map-page .container {
+        padding: 25px !important;
+    }
+    
+    .map-page h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .map-nav a {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+    
+    .map-nav ul {
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+}
+
+/* Upload page navbar */
+.upload-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 15px 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.upload-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.upload-nav li {
+    margin: 0 !important;
+}
+
+.upload-nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+.upload-nav a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* User Info and Logout Styles */
+.upload-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.user-info {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.user-info span {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.logout-btn {
+  background: rgba(255, 82, 82, 0.8) !important;
+  border-radius: 20px !important;
+  padding: 8px 16px !important;
+  transition: all 0.3s ease !important;
+}
+
+.logout-btn:hover {
+  background: rgba(255, 82, 82, 1) !important;
+  transform: translateY(-2px);
+}
+
+/* Report page navbar */
+.report-nav {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(51, 51, 51, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    padding: 15px 0 !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+}
+
+.report-nav ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 30px !important;
+    flex-wrap: wrap !important;
+}
+
+.report-nav li {
+    margin: 0 !important;
+}
+
+.report-nav a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    transition: all 0.3s ease !important;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3) !important;
+}
+
+.report-nav a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffffff !important;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Mobile responsiveness for upload and report navbars */
+@media (max-width: 768px) {
+    .upload-nav ul,
+    .report-nav ul {
+        gap: 15px !important;
+        padding: 0 10px !important;
+    }
+    
+    .upload-nav a,
+    .report-nav a {
+        font-size: 14px !important;
+        padding: 8px 16px !important;
+    }
+    
+    .upload-page {
+        padding-top: 70px !important;
+    }
+    
+    .report-page {
+        padding-top: 70px !important;
+    }
+}
+
+/* Login and Signup Page Styles */
+.login-page, .signup-page {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.login-container, .signup-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90%;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.login-container h1, .signup-container h1 {
+  color: white;
+  margin-bottom: 30px;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.login-container input, .signup-container input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-container input::placeholder, .signup-container input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.login-container input:focus, .signup-container input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.login-container button, .signup-container button {
+  width: 100%;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: all 0.3s ease;
+}
+
+.login-container button:hover, .signup-container button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.auth-link {
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-link a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* Flash Messages */
+.flash-messages {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  z-index: 1000;
+  max-width: 400px;
+}
+
+.flash-message {
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideInRight 0.3s ease;
+}
+
+.flash-success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.flash-error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.flash-warning {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+
+.flash-info {
+  background: #cce7ff;
+  color: #004085;
+  border: 1px solid #b6d7ff;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Login and Signup Navigation Styles */
+.login-nav, .signup-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+.login-nav ul, .signup-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-nav li, .signup-nav li {
+  margin: 0 20px;
+}
+
+.login-nav a, .signup-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-nav a:hover, .signup-nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}

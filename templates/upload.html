@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Upload Data</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body class="upload-page">
+  <nav class="upload-nav">
+    <div class="user-info">
+      {% if session.user_name %}
+        <span>Welcome, {{ session.user_name }}!</span>
+      {% endif %}
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/report">Report</a></li>
+      <li><a href="/show-map">Map</a></li>
+      <li><a href="/resource">Resources</a></li>
+      <li><a href="/about">About</a></li>
+      {% if session.user_id %}
+        <li><a href="{{ url_for('logout') }}" class="logout-btn">Logout</a></li>
+      {% else %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+  
+  <div class="upload-box">
+    <h1>Upload Healthcare Data (CSV)</h1>
+    <div class="info-section">
+      <h3>Required CSV Columns:</h3>
+      <p><small>Your CSV file should contain the following columns (case-insensitive):</small></p>
+      <ul>
+        <li>District</li>
+        <li>Latitude</li>
+        <li>Longitude</li>
+        <li>TB Incidence</li>
+        <li>Diabetes (or Diabetes Prevalence)</li>
+        <li>Malaria Incidence</li>
+        <li>HIV/AIDS (or HIV/AIDS Prevalence)</li>
+        <li>IMR</li>
+        <li>Vaccination (or Vaccination Rate)</li>
+        <li>Income (or Income Level)</li>
+        <li>Employment Rate</li>
+        <li>Education (or Education Level)</li>
+        <li>Housing (or Housing Conditions)</li>
+        <li>Urbanization (or Urbanization Rate)</li>
+        <li>AQI</li>
+        <li>Annual Rainfall (or Rainfall)</li>
+      </ul>
+      <p><small><a href="/static/health_data.csv" download>Download sample CSV file</a></small></p>
+    </div>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept=".csv" required />
+      <br>
+      <button type="submit">Upload & Predict</button>
+    </form>
+  </div>
+</body>
+</html>

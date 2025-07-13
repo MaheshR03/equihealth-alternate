@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Prediction Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body class="result-page">
+  <nav class="result-nav">
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/upload">Upload</a></li>
+      <li><a href="/report">Report</a></li>
+      <li><a href="/show-map">Map</a></li>
+      <li><a href="/resource">Resources</a></li>
+      <li><a href="/about">About</a></li>
+      {% if session.user_id %}
+        <li><a href="{{ url_for('logout') }}" class="logout-btn">Logout</a></li>
+      {% else %}
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Sign Up</a></li>
+      {% endif %}
+    </ul>
+  </nav>
+
+  <div class="container">
+    <h1>Prediction Results</h1>
+    
+    <div class="table-scroll-container">
+      <div class="table-scroll-top" id="topScroll">
+        <div id="topScrollContent"></div>
+      </div>
+      <div class="table-wrapper" id="tableWrapper">
+        <table class="result-table" id="resultTable">
+          <thead>
+            <tr>
+              {% for title in titles %}
+                <th>{{ title }}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in tables %}
+              <tr>
+                {% for cell in row %}
+                  <td>{{ cell }}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <a href="/download" class="download-btn">Download CSV</a>
+    </div>
+  </div>
+
+  <script>
+    // Setup scroll synchronization (same as report page)
+    function setupScrollSync() {
+      const topScroll = document.getElementById('topScroll');
+      const tableWrapper = document.getElementById('tableWrapper');
+      const topScrollContent = document.getElementById('topScrollContent');
+      const table = document.getElementById('resultTable');
+      
+      // Set the width of the top scroll content to match table width
+      function updateTopScrollWidth() {
+        const tableWidth = table.scrollWidth;
+        topScrollContent.style.width = tableWidth + 'px';
+      }
+      
+      // Sync scroll positions
+      function syncScrollLeft(source, target) {
+        target.scrollLeft = source.scrollLeft;
+      }
+      
+      // Add event listeners for scroll synchronization
+      topScroll.addEventListener('scroll', () => {
+        syncScrollLeft(topScroll, tableWrapper);
+      });
+      
+      tableWrapper.addEventListener('scroll', () => {
+        syncScrollLeft(tableWrapper, topScroll);
+      });
+      
+      // Update scroll width when window resizes
+      window.addEventListener('resize', updateTopScrollWidth);
+      
+      // Initial setup
+      setTimeout(updateTopScrollWidth, 100);
+      
+      return updateTopScrollWidth;
+    }
+
+    // Initialize scroll sync after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+      setupScrollSync();
+    });
+  </script>
+</body>
+</html>
