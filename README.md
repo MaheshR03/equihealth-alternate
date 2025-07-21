@@ -70,7 +70,7 @@ EquiHealth is a comprehensive web platform for analyzing and visualizing health 
 
 This application is ready for one-click deployment to Railway:
 
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template)
+[![Deploy on Railway](https://railway.app/button.svg)](https://web-production-f9f12.up.railway.app/)
 
 For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
 
@@ -152,7 +152,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For questions, issues, or contributions:
 - Create an [Issue](https://github.com/MaheshR03/equihealth-alternate/issues)
 - Submit a [Pull Request](https://github.com/MaheshR03/equihealth-alternate/pulls)
-- Contact: [maheshr3002@gmail.com]
 
 ---
 
