@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Download</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</head>
+<body class="report-page">
+    <nav class="report-nav">
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/upload">Upload</a></li>
+            <li><a href="/show-map">Map</a></li>
+            <li><a href="/resource">Resources</a></li>
+            <li><a href="/about">About</a></li>
+            {% if session.user_id %}
+                <li><a href="{{ url_for('logout') }}" class="logout-btn">Logout</a></li>
+            {% else %}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <h1>Project Report</h1>
+        <div class="table-scroll-container">
+            <div class="table-scroll-top" id="topScroll">
+                <div id="topScrollContent"></div>
+            </div>
+            <div class="table-wrapper" id="tableWrapper">
+                <table id="reportTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>State</th>
+                            <th>District</th>
+                            <th>Latitude</th>
+                            <th>Longitude</th>
+                            <th>TB Incidence</th>
+                            <th>Diabetes Prevalence</th>
+                            <th>Malaria Incidence</th>
+                            <th>HIV/AIDS Prevalence</th>
+                            <th>IMR</th>
+                            <th>Vaccination Rate</th>
+                            <th>Income Level</th>
+                            <th>Employment Rate</th>
+                            <th>Education Level</th>
+                            <th>Housing Conditions</th>
+                            <th>Urbanization Rate</th>
+                            <th>AQI</th>
+                            <th>Annual Rainfall</th>
+                            <th>Healthcare Access</th>
+                            <th>Prediction Score</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportBody">
+                        <!-- Data will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <button id="downloadBtn">Download Report</button>
+    </div>
+
+    <script>
+        // Get CSV data passed from Flask
+        const csvData = `{{ csv_data|safe }}`;
+        const dataAvailable = "{{ 'true' if data_available else 'false' }}";
+        const tbody = document.getElementById('reportBody');
+
+        // Setup scroll synchronization
+        function setupScrollSync() {
+            const topScroll = document.getElementById('topScroll');
+            const tableWrapper = document.getElementById('tableWrapper');
+            const topScrollContent = document.getElementById('topScrollContent');
+            const table = document.getElementById('reportTable');
+            
+            // Set the width of the top scroll content to match table width
+            function updateTopScrollWidth() {
+                const tableWidth = table.scrollWidth;
+                topScrollContent.style.width = tableWidth + 'px';
+            }
+            
+            // Sync scroll positions
+            function syncScrollLeft(source, target) {
+                target.scrollLeft = source.scrollLeft;
+            }
+            
+            // Add event listeners for scroll synchronization
+            topScroll.addEventListener('scroll', () => {
+                syncScrollLeft(topScroll, tableWrapper);
+            });
+            
+            tableWrapper.addEventListener('scroll', () => {
+                syncScrollLeft(tableWrapper, topScroll);
+            });
+            
+            // Update scroll width when window resizes
+            window.addEventListener('resize', updateTopScrollWidth);
+            
+            // Initial setup
+            setTimeout(updateTopScrollWidth, 100);
+            
+            return updateTopScrollWidth;
+        }
+
+        // Initialize scroll sync
+        const updateScrollWidth = setupScrollSync();
+
+        // Check if data exists and populate the table
+        if (dataAvailable && csvData) {
+            const rows = csvData.trim().split('\n').slice(1); // Skip the header row
+            
+            // Populate the table with data
+            rows.forEach(row => {
+                if (row.trim()) { // Check if row is not empty
+                    const columns = row.split(',');
+                    if (columns.length > 1) {
+                        const tr = document.createElement('tr');
+                        columns.forEach(col => {
+                            const td = document.createElement('td');
+                            td.textContent = col.trim().replace(/"/g, ''); // Remove quotes if any
+                            tr.appendChild(td);
+                        });
+                        tbody.appendChild(tr);
+                    }
+                }
+            });
+            
+            // Update scroll width after data is loaded
+            setTimeout(updateScrollWidth, 200);
+        } else {
+            // Add message when no data is available
+            console.log('No data available from server');
+            const messageRow = document.createElement('tr');
+            messageRow.innerHTML = '<td colspan="20" class="no-data-message">No data available. Please upload a CSV file first.</td>';
+            tbody.appendChild(messageRow);
+        }
+
+        // Download CSV functionality
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            console.log('Download button clicked');
+            
+            try {
+                // Check if we have actual data
+                if (!dataAvailable || !csvData) {
+                    alert('No data available for download. Please upload a CSV file first.');
+                    return;
+                }
+
+                // Use the CSV data directly from the server
+                const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+                console.log('Blob created:', blob.size, 'bytes');
+                
+                // Create download link
+                const link = document.createElement('a');
+                const url = URL.createObjectURL(blob);
+                link.href = url;
+                link.download = 'health_predictions_report.csv';
+                
+                // Add to DOM, click, then remove
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Clean up the URL object
+                URL.revokeObjectURL(url);
+                
+                console.log('Download initiated');
+                alert('CSV file download started!');
+                
+            } catch (error) {
+                console.error('Download error:', error);
+                alert('Error downloading file: ' + error.message);
+            }
+        });
+    
+    </script>
+</body>
+</html>
