@@ -130,6 +130,7 @@ predictions_*.csv
 DEPLOYMENT_CHECKLIST.md
 .env.example
 generate_secret_key.py
+test_simple_predictor.py
 
 # Local development
 *.log
